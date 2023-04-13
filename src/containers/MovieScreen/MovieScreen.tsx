@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { View, Text, Image, ViewStyle, StyleProp, ImageStyle, TextProps } from 'react-native'
+import { View, Text, Image, ViewStyle, StyleProp, ImageStyle, TextProps, Alert } from 'react-native'
 import { IMovieProps, IMovieState } from '../../types/interfaces';
 import styles from './MovieScreen.scss';
 
@@ -8,11 +8,16 @@ const MovieScreen = ({ route }: IMovieProps) => {
     const { id } = route.params;
     
     const handleSearch = async () => {
-        const url = `https://www.omdbapi.com/?i=${id}&apikey=e2e51b11`;
-        const response = await fetch(url);
-        const jsonData = await response.json();
+        try {
+            const url = `https://www.omdbapi.com/?i=${id}&apikey=e2e51b11`;
+            const response = await fetch(url);
+            const jsonData = await response.json();
+    
+            setMovie(jsonData);
+        } catch (e) {
+            Alert.alert('There was an error loading the results');
+        }
 
-        setMovie(jsonData);
     }
 
     useEffect(() => {

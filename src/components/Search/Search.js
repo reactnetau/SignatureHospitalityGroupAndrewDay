@@ -5,14 +5,20 @@ import styles from './Search.scss';
 const Search = ({ setMovies }) => {
     const [searchField, setSearchField] = useState('');
     const handleSearch = async () => {
-        const response = await fetch(`https://www.omdbapi.com/?s=${searchField}&apikey=e2e51b11`);
-        const jsonData = await response.json();
-
-        if (Array.isArray(jsonData.Search)) {
-            setMovies(jsonData.Search);
-        } else {
-            setMovies([jsonData.Search]);
+        try {
+            const response = await fetch(`https://www.omdbapi.com/?s=${searchField}&apikey=e2e51b11`);
+            const jsonData = await response.json();
+    
+            if (Array.isArray(jsonData.Search)) {
+                setMovies(jsonData.Search);
+            } else {
+                setMovies([jsonData.Search]);
+            }
+        } catch (e) {
+            Alert.alert('There was an error loading the results');
         }
+
+
     }
     return (
         <View style={styles.searchField}>
