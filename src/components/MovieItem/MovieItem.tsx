@@ -8,7 +8,6 @@ const MovieItem = ({ movie } :IMovie ) => {
     const navigation = useNavigation();
     const id = movie.imdbID;
 
-    console.log(id);
     return (
         <Pressable style={styles.item as StyleProp<ViewStyle>} onPress={() => navigation.navigate("Movie", { id, name: movie.Title })}>
             <Image source={{ uri: movie.Poster }} style={{width: '100%', aspectRatio: 1}} />

@@ -7,7 +7,6 @@ const MovieScreen = ({ route }: IMovieProps) => {
     const [movie, setMovie] = useState<IMovieState>();
     const { id } = route.params;
     
-    console.log(id);
     const handleSearch = async () => {
         const url = `https://www.omdbapi.com/?i=${id}&apikey=e2e51b11`;
         const response = await fetch(url);
