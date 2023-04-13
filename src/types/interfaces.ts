@@ -2,7 +2,7 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootNavigatorParamList } from ".";
 
 export interface IMovieList {
-    movies: [];
+    movies: IMovieState[];
 }
 
 export interface IMovie {
@@ -23,6 +23,8 @@ export interface IMovieState {
     Year: string;
     Director: string;
     Plot: string;
+    Title: string;
+    imdbID: string;
 }
 
 export type CreateNavigationProp = NativeStackNavigationProp<
