@@ -10,7 +10,7 @@ const MovieList = ({ movies = [] }: IMovieList) => {
                     <FlatList
                         numColumns={2}
                         data={movies}
-                        renderItem={({item}) => item ? <MovieItem movie={item} /> : null}
+                        renderItem={({item}) => <MovieItem movie={item} />}
                         keyExtractor={(item) => item.imdbID}
                     />
                 )}
