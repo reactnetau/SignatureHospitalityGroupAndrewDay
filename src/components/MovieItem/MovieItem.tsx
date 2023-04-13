@@ -1,11 +1,11 @@
 import React from 'react'
 import { Text, Image, Pressable, StyleProp, ViewStyle, TextProps } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
-import { IMovie } from '../../types/interfaces';
+import { CreateNavigationProp, IMovie, IMovieProps } from '../../types/interfaces';
 import styles from './MovieItem.scss';
 
 const MovieItem = ({ movie } :IMovie ) => {
-    const navigation = useNavigation();
+    const navigation = useNavigation<CreateNavigationProp>();
     const id = movie.imdbID;
 
     return (

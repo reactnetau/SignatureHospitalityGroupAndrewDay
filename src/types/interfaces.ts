@@ -1,3 +1,6 @@
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { RootNavigatorParamList } from ".";
+
 export interface IMovieList {
     movies: [];
 }
@@ -12,7 +15,7 @@ export interface IMovie {
 }
 
 export interface IMovieProps {
-    route: { params: { id: string }};
+    route: { params: { id: string, name: string }};
 }
 
 export interface IMovieState {
@@ -21,3 +24,8 @@ export interface IMovieState {
     Director: string;
     Plot: string;
 }
+
+export type CreateNavigationProp = NativeStackNavigationProp<
+  RootNavigatorParamList,
+  'Movie'
+>;
