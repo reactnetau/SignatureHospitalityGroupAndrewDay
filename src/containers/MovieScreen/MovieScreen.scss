@@ -1,0 +1,14 @@
+.poster {
+    width: 100%;
+    aspect-ratio: 1;
+}
+
+.movieText {
+    font-size: 15px;
+    padding: 10px;
+}
+
+.movieContainer {
+    flex-direction: row;
+    justify-content: space-between;
+}
